@@ -1,5 +1,4 @@
 package TestWork.pages;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +8,6 @@ import java.util.List;
 
 
 public class Base_Page{
-
     public WebDriver driver;
 
     @FindBy(xpath = "//input[@id= 'search']")
@@ -49,23 +47,8 @@ public class Base_Page{
     {
         searchBox.submit();
     }
-    public void profileDetailsClick(){
-        userProfile.click();
-    }
-
-    public void logoutClick(){
-        logoutBtn.click();
-    }
-
-    public void authButtonClick() {
-        loginBtn.click();
-    }
-
-    public boolean isAuthButtonDisplayed(){
-        return loginBtn.isDisplayed();
-    }
-
-    public void verifyDeauthentication(){
-        Assert.assertTrue("Checking if we logged out", this.isAuthButtonDisplayed());
-    }
+    public void profileDetailsClick(){userProfile.click();}
+    public void logoutClick(){logoutBtn.click();}
+    public void authButtonClick() {loginBtn.click();}
+    public boolean isAuthButtonDisplayed(){return loginBtn.isDisplayed();}
 }

@@ -1,13 +1,10 @@
 package TestWork.pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -45,50 +42,40 @@ public class Filmix_Film_Page extends Base_Page{
     {
         super(driver);
     }
-
-    public void commentBtnClick(){
-        addCommentBtn.click();
-    }
-
+    public void commentBtnClick(){addCommentBtn.click();}
     public void commentBoxClick(){
+
         commentLabel.click();
         driver.switchTo().frame("comments_ifr");
-    }
-
+        }
     public void setCommentBox(String text)
     {
         commentBox.sendKeys(text);
     }
-
     public void scrollToCommentSection(){
         bodyObject.sendKeys(Keys.PAGE_DOWN);
     }
-
     public void submitComment(){
         driver.switchTo().parentFrame();
-        commentSubmitBtn.click();
-    }
-
+        commentSubmitBtn.click();}
     public String getTopComment()
     {
         return commentPanel.get(0).getText();
     }
-
     public void refreshPage()
     {
         driver.navigate().refresh();
     }
-
     public void deleteCommentBtnClick(){
         deleteCommentBtn.click();
 
     }
-
     public boolean checkCommentDeletion()
     {
         boolean result = false;
         try
         {
+
            commentText.getText();
         }
         catch (NoSuchElementException ex)
@@ -97,23 +84,9 @@ public class Filmix_Film_Page extends Base_Page{
         }
         return result;
     }
-
     public void deletionAcceptBtnClick()
     {
         deletionAcceptBtn.click();
-    }
-
-    public void waitUntilCommentBeVisible(){
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//label[contains(text(), 'комментарий')]")));
-    }
-
-    public void verifyThatCommentBeAdd(){
-        Assert.assertTrue("Checking if comment is added to page", this.getTopComment().contains("Testing comments section with Selenium WebDriver for Java"));
-    }
-
-    public void verifyCommentDeletion(){
-        Assert.assertTrue("Testing comment deletion", this.checkCommentDeletion());
     }
 
 }

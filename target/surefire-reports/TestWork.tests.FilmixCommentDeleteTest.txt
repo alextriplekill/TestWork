@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: TestWork.tests.FilmixCommentDeleteTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.386 s - in TestWork.tests.FilmixCommentDeleteTest
